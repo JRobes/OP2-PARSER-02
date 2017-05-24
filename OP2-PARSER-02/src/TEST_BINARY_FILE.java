@@ -86,7 +86,11 @@ public class TEST_BINARY_FILE {
 			System.out.println("Es el principio de OFP table, dentro de la palabra de configuracion...");
 			
 			try {
-				fileInputStream.skipBytes(numeroDeDatos*4 + 8);
+				fileInputStream.skipBytes(4);//
+				System.out.println("Approach code???\t"+fileInputStream.readInt());
+				System.out.println("Table code???\t"+fileInputStream.readInt());
+				fileInputStream.skipBytes(numeroDeDatos*4-4);
+				//fileInputStream.skipBytes(numeroDeDatos*4 + 8);//ESTO ERA EL ORIGINAL QUE FUNCIONA
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
