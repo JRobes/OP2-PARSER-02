@@ -88,6 +88,10 @@ public class TEST_BINARY_FILE {
 			try {
 				fileInputStream.skipBytes(4);//
 				System.out.println("Approach code???\t"+fileInputStream.readInt());
+				
+				//int tableCode = fileInputStream.readInt();
+				//IOFPTable_Code table_code2 = null;
+				//System.out.println("Table code???\t"+tableCode + "\t"+table_code2.getTable_CodeDescription(Integer.valueOf(tableCode)));
 				System.out.println("Table code???\t"+fileInputStream.readInt());
 				fileInputStream.skipBytes(numeroDeDatos*4-4);
 				//fileInputStream.skipBytes(numeroDeDatos*4 + 8);//ESTO ERA EL ORIGINAL QUE FUNCIONA
