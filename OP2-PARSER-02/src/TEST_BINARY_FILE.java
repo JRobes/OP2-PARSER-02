@@ -7,14 +7,15 @@ import com.google.common.io.LittleEndianDataInputStream;
 
 public class TEST_BINARY_FILE {
 	
-	static String fileName = "bancada-a320-conf-3100-sol101.op2";
+	//static String fileName = "bancada-a320-conf-3100-sol101.op2";
 	//static String fileName = "tocho-interno-loop-03.op2";
 	//static String fileName = "bdf-and-op2.op2";
+	static String fileName = "element-forces-s101-wall-pie-panel.op2";
 
 	
 	private static LittleEndianDataInputStream fileInputStream = null;
 	static FileInputStream inputStream;
-	private static boolean finDeArchivo = false;
+	private static boolean endOfFile = false;
 	private static int valor;
 	private static String dataBlockName;
 	
@@ -32,8 +33,8 @@ public class TEST_BINARY_FILE {
 		fileInputStream = new LittleEndianDataInputStream(inputStream);
 		try {
 			readOP2Header();
-			while(!finDeArchivo){
-				finDeArchivo = leeDataBlock();
+			while(!endOfFile){
+				endOfFile = leeDataBlock();
 			}
 			fileInputStream.close();
 		} catch (IOException e) {
